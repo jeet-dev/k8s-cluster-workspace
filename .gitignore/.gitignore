@@ -3,6 +3,7 @@
 *.terraform/*
 *.ssh
 *.sshkey
+*kubeconfig
 # .tfstate files
 *.tfstate
 *.tfstate.*
