@@ -12,7 +12,7 @@ variable "availability-zones" {
 
 resource "aws_key_pair" "rancher" {
   key_name   = "rancher"
-  public_key = file("clusterkeys.pub")
+  public_key = file(".sshkeys/clusterkeys.pub")
 }
 
 variable "rancher_servers" {
@@ -89,7 +89,7 @@ resource "aws_instance" "rancher" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("clusterkeys")
+    private_key = file(".sshkeys/clusterkeys")
     host        = self.public_ip
   }
   

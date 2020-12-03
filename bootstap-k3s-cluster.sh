@@ -15,7 +15,7 @@ echo "Node2 : $NODE_2 "
 echo "Node3 : $NODE_3 "
 
 # The first server starts the cluster
-k3sup install  --cluster --user $USER --ssh-key ./sshkeys/clusterkeys --k3s-channel stable  --ip $NODE_1
+k3sup install  --cluster --user $USER --ssh-key .sshkeys/clusterkeys --k3s-channel stable  --ip $NODE_1
 
 if [[ $1 == 'cluster' ]]; then
  for i in {1..10}
@@ -26,12 +26,12 @@ if [[ $1 == 'cluster' ]]; then
 
  # The second node joins
 
- k3sup join --ip $NODE_2  --server-ip $NODE_1 --user $USER  --ssh-key ./sshkeys/clusterkeys
+ k3sup join --ip $NODE_2  --server-ip $NODE_1 --user $USER  --ssh-key .sshkeys/clusterkeys
  #kubectl label node worker1 node-role.kubernetes.io/worker=worker
 
  # The third node joins
 
- k3sup join --ip $NODE_3  --server-ip $NODE_1  --user $USER  --ssh-key ./sshkeys/clusterkeys
+ k3sup join --ip $NODE_3  --server-ip $NODE_1  --user $USER  --ssh-key .sshkeys/clusterkeys
  #kubectl label node worker2 node-role.kubernetes.io/worker=worker
 fi
 
