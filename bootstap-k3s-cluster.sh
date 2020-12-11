@@ -10,7 +10,7 @@ export NODE_3=`terraform output -json instance_public_ip_addresses | jq '.[]' | 
 
 export USER=ec2-user
 
-echo "Node2 : $NODE_1 "
+echo "Node1 : $NODE_1 "
 echo "Node2 : $NODE_2 "
 echo "Node3 : $NODE_3 "
 

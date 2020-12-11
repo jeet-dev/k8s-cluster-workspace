@@ -17,7 +17,7 @@ resource "aws_key_pair" "rancher" {
 
 variable "rancher_servers" {
 	type = list(string)
-  default = ["master","worker1","worker2"]
+  default = ["worker1","master","worker2"]
 }
 
 resource "aws_security_group" "rancher" {
@@ -128,3 +128,5 @@ for instance in aws_instance.rancher:
 instance.id => instance.public_ip
 }
 }
+
+
